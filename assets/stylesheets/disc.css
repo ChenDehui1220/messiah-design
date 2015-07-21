@@ -1,0 +1,243 @@
+@charset "utf-8";
+@import url("disc_reset.css");
+@import url("disc_template.css");
+
+
+/* 版型設定 */
+body {
+	background-color: #fff;
+}
+#disc_template_948 {
+	width: 948px;
+	background: #000000 url(../img/template_bg.gif) repeat-y 0 0;
+	margin: 0 auto;
+	overflow: hidden;
+	text-shadow: 0 0 0 transparent;
+}
+/* 主內容區 */
+#content{
+	width: 780px;
+	background-color: transparent;
+	float: left;
+	overflow: hidden;
+}
+#content_948 {
+	width: 948px;
+	background-color: transparent;
+	float: 
+	overflow: hidden;
+}
+/* 版型右欄底色 */
+#disc_template_948 {
+	background-color: #fff;
+	position: relative;
+}
+/* 右側社群分享鈕 */
+.share_box {
+	background-color: #fff;
+}
+#main_visual {
+	margin: 0;
+	padding: 0;
+	width: 565px;
+	height: 915px;
+	float: left;
+	overflow: hidden;
+	position: relative;
+}
+/* 按讚加入粉絲團 */
+#like_Box {
+	width: 100px;
+	height: 40px;
+	/*background-color: #333;*/
+	position: absolute;
+	top: 55px;
+	left: 445px;
+}
+/* 購票資訊 */
+#btn_booking {
+	width: 218px;
+	height: 69px;
+	position: absolute;
+	top: 855px;
+	left: 175px;
+}
+/* 縱向推薦專輯 */
+#recommend_album01, #recommend_album02 {
+	width: 180px;
+	margin: 45px 0 0 2px;
+	float: left;
+	overflow: hidden;
+}
+#recommend_album02 {
+	margin-left: 10px;
+}
+ul.recommend_album_list li  {
+	font: 400 12px/140% 微軟正黑體;
+	color: #999;
+	width: 160px;
+	margin: 5px auto 5px;
+	padding-top: 5px;
+	position: relative;
+	border-top: dotted 1px #555;
+}
+ul.recommend_album_list li h4, ul.recommend_album_list li h5 {
+	width: 130px;
+	letter-spacing: -0.05em;
+}
+ul.recommend_album_list li h4 {
+	color: #8EE5EE;
+	width: 140px;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0){ ul.recommend_album_list li h4 {letter-spacing: -0.1em;} }  /*chrome and safari*/
+ul.recommend_album_list li img {
+	width: 150px;
+	border: solid 1px #eee;
+	margin: 5px auto;
+	display: block;
+}
+ul.recommend_album_list li .txt_highlight, ul.recommend_album_list li h5 {
+	color: #ab71a8;
+}
+ul.recommend_album_list  li .control_btn {
+	position: absolute;
+	right: 3px;
+	top: -2px;
+}
+ul.recommend_album_list li .control_btn  span.top_btn {
+	width: 28px;
+	height: 18px;
+	margin: 0;
+	display: block;
+}
+
+/* 區塊群組 */
+.content_box {
+	width: 948px;
+	float: left;
+	/*background-color: #d8d2c6;*/
+	background-color: #000;
+	margin: 0;
+	padding: 0 0 10px;
+	/*color: #2e2e2d;*/
+	color: #cec1b5;
+}
+/* 區塊item */
+.content_box h2 {
+	background: url(../img/itembg_larger.png) no-repeat 0 0;
+	height: 50px;
+	font: 700 20px/50px 微軟正黑體;
+	text-indent: 20px;
+	color: #f5c345;
+}
+.content_box h3 {
+	color: #8EE5EE;
+}
+.content_box a {
+	color: #ccc;
+}
+.content_box p {
+	line-height: 140%;
+	margin: 0 15px;
+}
+/* 內容-強調文字-橘色 */
+.content_box strong {
+	color: #f60;
+}
+p.fbevent_btn {
+	text-align: center;
+	width: 678px;
+	height: 50px;
+	margin: 20px 0;
+}
+/* 內容-活動時間.地點等項目便利貼顏色-預設黃 */
+.content_box h4 span, #sidebar h4 span {
+	border-left: solid 5px #fc0;
+	padding: 2px 5px 2px 6px;
+	margin-right: 5px;
+}
+/* 紅-字反白 */
+.content_box h4.post_grey span, #sidebar h4.post_grey span {
+	border-left: solid 5px #ff5f00;
+	background-color: #4d4d4d;
+	color: #fff;
+}
+/* 紅-字反白 */
+.content_box h4.post_red span {
+	border-left: solid 5px #a53a00;
+	background-color: #683434;
+	color: #fff;
+}
+/* 藍-字反白 */
+.content_box h4.post_blue span {
+	border-left: solid 5px #bbf;
+	background-color: #00f;
+	color: #fff;
+}
+/* 粉紅-字反白 */
+.content_box h4.post_deeppink span, #sidebar h4.post_deeppink span {
+	border-left: solid 5px #faa;
+	background-color: #ed125a;
+	color: #fff;
+}
+/* 亮藍-字反白 */
+.content_box h4.post_bright_blue span {
+	border-left: solid 5px #4F94CD;
+	background-color: #8EE5EE;
+	color: #000;
+}
+/* 右側專輯圖 */
+#sidebar {
+	width: 270px;
+	overflow: hidden;
+	font: 400 13px/100% Verdana, Geneva, sans-serif;
+	background-color: transparent;
+	position: absolute;
+	.top: 375px;
+	right: 0;
+}
+#sidebar h4{
+	margin: 15px 0 0 10px;
+	font-size: 12px;
+}
+/* 專輯曲目的線*/
+.event_album_name_line{ 
+	/*border-top:#ed125a solid 1px; 
+	border-bottom:#ed125a solid 1px;*/
+	border:0;
+	height:25px;
+}
+.event_album_name_line span.top_btn{ 
+	width: 28px;
+	height: 25px;
+	margin-right: 5px;
+	float: right;
+}
+/* 贈獎活動 */
+.promation_box {
+	margin-bottom: 5px;
+}
+/* 小區塊item */
+.promation_box h2 {
+	background: url(../img/itembg_shorter.gif) no-repeat 0 0;
+	height: 30px;
+	font: 700 16px/30px simhei;
+	text-indent: 20px;
+	color: #fff;
+	border-bottom: dotted 1px #777;
+}
+.promation_box p {
+	text-align: center;
+	margin: 10px auto;
+}
+.fb_event {
+	background: url(../img/promotion_btn.png) no-repeat 0 0;
+	width: 140px;
+	height: 50px;
+	display: block; 
+	text-indent:-9999px;
+	margin:2px auto;
+}
+a.fb_event:hover {
+	background-position: 0 -50px;
+}
