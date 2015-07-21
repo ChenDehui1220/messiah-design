@@ -20,18 +20,26 @@
   <body>
     <?= $header;?>
     <?= $content;?>
+    <script src="/assets/javascripts/jquery/jquery.mobile.custom.min.js" type="text/javascript"></script>
     <script src="/assets/javascripts/jquery/jquery-migrate.min.js" type="text/javascript"></script>
     <script src="/assets/javascripts/jquery/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="/assets/javascripts/plugins/jquery_ui_touch_punch/jquery.ui.touch-punch.min.js" type="text/javascript"></script>
     <script src="/assets/javascripts/bootstrap/bootstrap.js" type="text/javascript"></script>
-    <script src="/assets/javascripts/plugins/modernizr/modernizr.min.js" type="text/javascript" defer></script>
-    <script src="/assets/javascripts/plugins/retina/retina.js" type="text/javascript" defer></script>
+    <script src="/assets/javascripts/plugins/modernizr/modernizr.min.js" type="text/javascript"></script>
+    <script src="/assets/javascripts/plugins/retina/retina.js" type="text/javascript"></script>
     <script src="/assets/javascripts/theme.js" type="text/javascript"></script>
-    <script src="/assets/javascripts/plugins/validate/jquery.validate.min.js" type="text/javascript" defer></script>
-    <script src="/assets/javascripts/plugins/validate/additional-methods.js" type="text/javascript" defer></script>
-    <script src="/assets/javascripts/plugins/bootstrap_datetimepicker/bootstrap-datetimepicker.js" type="text/javascript" defer></script>
-    <script src="/assets/javascripts/plugins/autosize/jquery.autosize-min.js" type="text/javascript" defer></script>
     <!-- / main page js file [required] -->
-    <script src="/assets/javascripts/webadmin/global.js" type="text/javascript" defer></script>
-    <script src="/assets/javascripts/webadmin/<?= $this->load_class_js;?>.js" type="text/javascript" defer></script>
+    <script src="/assets/javascripts/plugins/validate/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="/assets/javascripts/plugins/validate/additional-methods.js" type="text/javascript"></script>
+    <script src="/assets/javascripts/plugins/bootstrap_datetimepicker/bootstrap-datetimepicker.js" type="text/javascript"></script>
+    <script src="/assets/javascripts/plugins/autosize/jquery.autosize-min.js" type="text/javascript"></script>
+    <script src="/assets/javascripts/webadmin/global.js" type="text/javascript"></script>
+    <script src="/assets/javascripts/webadmin/<?= $this->load_class_js;?>.js" type="text/javascript"></script>
+    <!-- / fileupload js file [options] -->
+    <? if (isset($fileupload) && $fileupload == true) {?>
+
+    <script src="/assets/javascripts/plugins/fileupload/jquery.fileupload.js" type="text/javascript"></script>
+    <script src="/assets/javascripts/plugins/fileupload/jquery.ui.widget.js" type="text/javascript"></script>
+    <? }?>
   </body>
 </html>

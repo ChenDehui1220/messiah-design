@@ -28,6 +28,9 @@ class Common extends REST_Controller {
     }
 
     //檔案上傳
+    function upload_get()
+    {
+    }
     function upload_post()
     {
         $width = $this->post('width');

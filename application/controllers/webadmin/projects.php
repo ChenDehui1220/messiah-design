@@ -38,7 +38,7 @@ class Projects extends MY_Controller
                 exit;
             }
         }
-        $data = array('result' => (object) array('type'=>'','top'=>0,'title'=>'','content'=>'','address'=>'','createTime'=>'','status'=>1));
+        $data = array('result' => (object) array('type'=>'','top'=>0,'title'=>'','content'=>'','address'=>'','createTime'=>'','status'=>1, 'fileupload' => true));
         $this->loadView('webadmin/projects_edit', $data);
     }
 
@@ -68,6 +68,7 @@ class Projects extends MY_Controller
         if ($id !== 0) {
             $result = $this->mdl_projects->one($id);
             $data['result'] = $result[0];
+            $data['fileupload'] = true;
             $this->loadView('webadmin/projects_edit', $data);
         } else {
             redirect('/admin/projects');
