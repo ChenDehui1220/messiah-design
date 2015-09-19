@@ -221,15 +221,6 @@ class Welcome extends CI_Controller {
 
         $this->loadView('contact', $data);
     }
-
-    //團隊
-    public function ourteam()
-    {
-        
-        $data = array();
-
-        $this->loadView('ourteam', $data);
-    }
 }
 
 /* End of file welcome.php */

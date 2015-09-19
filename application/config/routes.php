@@ -73,7 +73,6 @@ $route['exhibition'] = "welcome/exhibition";
 $route['exhibition/(:num)'] = "welcome/exhibition/$1";
 $route['graphic'] = "welcome/graphic";
 $route['graphic/(:num)'] = "welcome/graphic/$1";
-$route['ourteam'] = "welcome/ourteam";
 $route['contact'] = "welcome/contact";
 
 /* End of file routes.php */
