@@ -49,9 +49,9 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = '127.0.0.1';
-$db['default']['username'] = 'root';
-$db['default']['password'] = 'admin';
-$db['default']['database'] = 'cms';
+$db['default']['username'] = 'iahdesigncomtw';
+$db['default']['password'] = 'q9l42ipr';
+$db['default']['database'] = 'iahdesigncomtw';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;

@@ -28,6 +28,33 @@ class Auth extends REST_Controller {
         }
     }
 
+    //變更密碼
+    function password_post() {
+        $finalResult = array('status' => 'failed');
+        $account = 'admin';
+        $password = $this->post('old_password');
+        $newPassword = $this->post('new_password');
+
+        $this->load->model('mdl_auth');
+        $result = $this->mdl_auth->auth($account, $password);
+
+        if (!$result) {
+            $finalResult['status'] = 'fail';
+            $finalResult['message'] = '原密碼不正確，請重新輸入!';
+            $this->response($finalResult, 400);
+        } else {
+            $result = $this->mdl_auth->update_password($newPassword);
+            if ($result) {
+                $finalResult['status'] = 'success';
+                $this->response($finalResult, 200);
+            } else {
+                $finalResult['status'] = 'fail';
+                $finalResult['message'] = '更新新密碼失敗，請聯絡工程師!';
+                $this->response($finalResult, 400);
+            }
+        }
+    }
+
     //登出
     function logout_post() {
         $finalResult = array('status' => true);

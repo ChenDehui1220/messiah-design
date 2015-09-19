@@ -1,13 +1,13 @@
 <?php
 
-class Mdl_Projects extends CI_Model
+class Mdl_projects extends CI_Model
 {
-    //取得所有上架資料
-    public function top5()
+    //取得所有精選資料
+    public function top2()
     {
         $result = array();
 
-        $sql = "SELECT id,title FROM projects WHERE status = '1' ORDER BY id DESC LIMIT 5";
+        $sql = "SELECT id,title,type,images FROM projects WHERE status = '1' AND top = '1' ORDER BY id DESC LIMIT 2";
 
         $query = $this->db->query($sql);
 
@@ -18,17 +18,17 @@ class Mdl_Projects extends CI_Model
         return $result;
     }
 
-    //提供前台上線消息
-    public function pageOne($id = null)
+    //提供前台上線專案
+    public function pageOne($id = null, $type = 1)
     {
         $result = array();
 
         if ($id !== null && is_numeric($id)) {
-            $sql   = "SELECT id,title,content,address,createTime FROM projects WHERE status = '1' AND id = ? LIMIT 0,1";
+            $sql   = "SELECT id,title,content,address,images,createTime FROM projects WHERE status = '1' AND id = ? LIMIT 0,1";
             $query = $this->db->query($sql, array($id));
         } else {
-            $sql   = "SELECT id,title,content,address,createTime FROM projects WHERE status = '1' ORDER BY createTime DESC LIMIT 0,1";
-            $query = $this->db->query($sql);
+            $sql   = "SELECT id,title,content,address,images,createTime FROM projects WHERE status = '1' AND type = ? ORDER BY createTime DESC LIMIT 0,1";
+            $query = $this->db->query($sql, array($type));
         }
 
         if ($query->num_rows() > 0) {
@@ -38,39 +38,38 @@ class Mdl_Projects extends CI_Model
         return $result;
     }
 
-    //提供前台其他消息
-    public function pageOthers($exceptId = null, $start = 0, $size = 5)
+    //提供前台上線專案頁面的快搜
+    public function pageNav($type = 1)
+    {
+        $result = array();
+
+        $sql   = "SELECT id,title FROM projects WHERE status = '1' AND type = ? ORDER BY createTime DESC";
+        $query = $this->db->query($sql, array($type));
+
+        if ($query->num_rows() > 0) {
+            $result = $query->result();
+        }
+
+        return $result;
+    }
+
+    //提供首頁專案列表
+    public function pageAll($start = 0, $size = 8)
     {
         $result = array();
 
         if ($start > 1) {
             $start = ($start - 1) * $size;
+        } else {
+            $start = 0;
         }
 
-        if ($exceptId !== null && is_numeric($exceptId)) {
-            $sql   = "SELECT id,type,top,title,createTime FROM projects WHERE status = '1' AND id != ? ORDER BY createTime DESC LIMIT " . $start . "," . $size;
-            $query = $this->db->query($sql, array($exceptId));
-
-            if ($query->num_rows() > 0) {
-                $result = $query->result();
-            }
-        }
-        return $result;
-    }
-
-    //取得所有資料
-    public function all()
-    {
-        $result = array();
-
-        $sql = "SELECT id,type,top,title,createTime,status FROM projects ORDER BY id DESC";
-
+        $sql   = "SELECT id,type,top,title,address,images,createTime FROM projects WHERE status = '1' ORDER BY createTime DESC LIMIT " . $start . "," . $size;
         $query = $this->db->query($sql);
 
         if ($query->num_rows() > 0) {
             $result = $query->result();
         }
-
         return $result;
     }
 
@@ -79,7 +78,7 @@ class Mdl_Projects extends CI_Model
     {
         $result = array();
 
-        $sql   = "SELECT id,type,top,title,content,address,createTime,updateTime,status FROM projects WHERE id = ?";
+        $sql   = "SELECT id,type,top,title,content,address,images,createTime,updateTime,status FROM projects WHERE id = ?";
         $query = $this->db->query($sql, array($id));
 
         if ($query->num_rows() > 0) {
@@ -89,8 +88,21 @@ class Mdl_Projects extends CI_Model
         return $result;
     }
 
+    //提供後台專案列表
+    public function all()
+    {
+        $result = array();
+        $sql   = "SELECT id,type,top,title,address,images,createTime,status FROM projects ORDER BY createTime DESC";
+        $query = $this->db->query($sql);
+
+        if ($query->num_rows() > 0) {
+            $result = $query->result();
+        }
+        return $result;
+    }
+
     //新增資料
-    public function add($type, $top, $title, $content, $address, $time, $status)
+    public function add($type, $top, $title, $content, $address, $images, $time, $status)
     {
         $data = array(
             'type'       => $type,
@@ -98,6 +110,7 @@ class Mdl_Projects extends CI_Model
             'title'      => $title,
             'content'    => $content,
             'address'    => $address,
+            'images'     => $images,
             'createTime' => $time,
             'status'     => $status,
         );
@@ -112,7 +125,7 @@ class Mdl_Projects extends CI_Model
     }
 
     //更新資料
-    public function update($id, $type, $top, $title, $content, $address, $time, $status)
+    public function update($id, $type, $top, $title, $content, $address, $images, $time, $status)
     {
         $data = array(
             'type'       => $type,
@@ -120,6 +133,7 @@ class Mdl_Projects extends CI_Model
             'title'      => $title,
             'content'    => $content,
             'address'    => $address,
+            'images'     => $images,
             'createTime' => $time,
             'updateTime' => date("Y-m-d H:i:s"),
             'status'     => $status,

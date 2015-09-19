@@ -18,4 +18,21 @@ class Mdl_auth extends CI_Model
         return $result;
     }
 
+    public function update_password($password)
+    {
+        $data = array(
+            'password' => md5($password)
+        );
+
+        $this->db->where('account', 'admin');
+        $this->db->update('admin', $data);
+
+        if ($this->db->affected_rows()) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
 }

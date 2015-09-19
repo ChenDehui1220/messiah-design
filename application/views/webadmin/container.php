@@ -37,9 +37,8 @@
     <script src="/assets/javascripts/webadmin/<?= $this->load_class_js;?>.js" type="text/javascript"></script>
     <!-- / fileupload js file [options] -->
     <? if (isset($fileupload) && $fileupload == true) {?>
-
     <script src="/assets/javascripts/plugins/fileupload/jquery.fileupload.js" type="text/javascript"></script>
-    <script src="/assets/javascripts/plugins/fileupload/jquery.ui.widget.js" type="text/javascript"></script>
+    <script src="/assets/javascripts/plugins/fileupload/vendor/jquery.ui.widget.js" type="text/javascript"></script>
     <? }?>
   </body>
 </html>

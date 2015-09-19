@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://www.3kids.tw/';
+$config['base_url']	= 'http://www.messiah-design.com.tw/';
 
 /*
 |--------------------------------------------------------------------------

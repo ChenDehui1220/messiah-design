@@ -1,48 +1,55 @@
-<tr>
-  <td height="40" align="center" valign="top" bgcolor="#DDD3CB"><table width="977" border="0" align="center" cellpadding="0" cellspacing="0">
-    <tr>
-      <td width="868" align="left"><span class="w_p"><a href="#">案例1</a>　/　<a href="#">案例2</a>　/　<a href="#">案例3</a>　/　<a href="#">案例4</a></span></td>
-      <td width="109" align="left"><img src="/assets/images/front/w_exhibition.png" width="140" height="40" /></td>
-    </tr>
-  </table></td>
-</tr>
-<tr>
-  <td align="center" valign="top" bgcolor="#FFFFFF"><table width="990" border="0" cellpadding="0" cellspacing="0">
-    <tr>
-      <td height="529" valign="top"><br />
-        <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
-          <tr>
-            <td height="515" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-            <tr></tr>
-            <tr>
-              <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                <tr>
-                  <td width="21%" align="left" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                    <tr>
-                      <td height="35" align="left" valign="top" class="w_b_m1">知名品牌專櫃 (#16)</td>
-                    </tr>
-                    <tr>
-                      <td align="left" valign="top" class="w_s">內容說明內容說明內容說明內容說明內容說明內容說明內容說明內容說明內容說明內容說明內容說明內容說明內容說明內容說明<br />
-                        <br />
-                        內容說明內容說明內容說明內容說明內容說明內容說明內容說明內容說明內容說明內容說明內容說明內容說明內容說明<br />
-                      <br /></td>
-                    </tr>
-                    <tr>
-                      <td align="left" valign="top" class="w_s">新店長春路 透天別墅<br />
-                      / 戎馬整合設計 x 賽亞室內裝修</td>
-                    </tr>
-                  </table></td>
-                  <td width="79%" colspan="2" valign="top" class="w_b_m1"><table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
-                    <tr>
-                      <td align="right" valign="top"><img src="/assets/images/front/e_730x520.jpg" width="730" height="520" /></td>
-                    </tr>
-                  </table></td>
-                </tr>
-              </table></td>
-            </tr>
-          </table></td>
+<table width="1000" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="40" class="w_p_n">
+      <? $count = sizeof($nav); foreach($nav as $a => $b) {?>
+        <a href="/<?=$this->router->fetch_method();?>/<?=$b->id;?>" class="w_p_n"><?=$b->title;?></a><? if(($count-1) > $a){ echo '　/　';}?>
+      <? }?>
+      </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="1677" valign="top"></td>
+  </tr>
+  <tr>
+    <td align="center" valign="top">
+      <div class="flexslider">
+        <ul class="slides">
+          <? $imgs = $one->images;
+          if ($imgs !== '') {
+          $imgs = json_decode($imgs);
+          foreach($imgs as $k => $v) {
+          ?>
+          <li>
+            <img src="/uploads/<?=$v;?>" />
+          </li>
+          <? }}?>
+        </ul>
+      </div>
+      <!-- FlexSlider -->
+      <script defer src="/assets/javascripts/plugins/flexslider/jquery.flexslider.js"></script>
+      <script type="text/javascript">
+      $(window).load(function(){
+      $('.flexslider').flexslider({
+      animation: "slide"
+      });
+      });
+      </script>
+      <style>
+        .flexslider {width:1000px;height:505px;}
+        </style>
+    </td>
+  </tr>
+  <tr>
+    <td valign="middle"><br />
+      <table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr class="w_b_m1">
+          <td width="40%" height="24" align="left" valign="top" class="w_bold"><?=$one->title;?></td>
+          <td width="60%" rowspan="2" align="left" valign="top"><span class="w_s"><?=$one->content;?></span></td>
+        </tr>
+        <tr class="w_b_m1">
+          <td height="25" align="left" valign="top"><span class="w_ss"><?=$one->address;?></span></td>
         </tr>
       </table></td>
     </tr>
-  </table></td>
-</tr>
+  </table>

@@ -3,11 +3,11 @@
 class Mdl_News extends CI_Model
 {
     //取得所有上架資料
-    public function top5()
+    public function newsTop2()
     {
         $result = array();
 
-        $sql   = "SELECT id,title FROM news WHERE status = '1' ORDER BY id DESC LIMIT 5";
+        $sql   = "SELECT id,title FROM news WHERE status = '1' ORDER BY id DESC LIMIT 2";
 
         $query = $this->db->query($sql);
 

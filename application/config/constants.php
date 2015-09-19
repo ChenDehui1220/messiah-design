@@ -36,7 +36,7 @@ define('FOPEN_READ_WRITE_CREATE',				'a+b');
 define('FOPEN_WRITE_CREATE_STRICT',				'xb');
 define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 
-
+define('IMAGE_FOLDER', '/uploads/');
 define('BASE_TITLE', 'Warhorse');
 define('ADMIN_BASE_TITLE', '戎馬整合設計管理系統');
 define('COPY_RIGHTS', 'Copyright © 2015 Warhorse Integrated Design');

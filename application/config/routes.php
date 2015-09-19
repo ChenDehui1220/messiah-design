@@ -55,18 +55,24 @@ $route['admin/news/(:any)'] = "webadmin/news/$1";
 $route['admin/news/(:any)/(:num)'] = "webadmin/news/$1/$2";
 $route['admin/contact'] = "webadmin/contact";
 $route['admin/contact/(:any)/(:num)'] = "webadmin/contact/$1/$2";
+$route['admin/manage/password'] = "webadmin/manage/password";
 
 
 //frontend
+$route['main/page/(:num)'] = "welcome/main/$1";
 $route['news'] = "welcome/news";
 $route['news/(:num)'] = "welcome/news/$1";
 $route['news/page/'] = "welcome/news";
 $route['news/page/(:num)'] = "welcome/news/null/$1";
-$route['about'] = "welcome/about";
+$route['brand/story'] = "welcome/brand/story";
+$route['brand/design'] = "welcome/brand/design";
+$route['brand/case'] = "welcome/brand/case";
 $route['interior'] = "welcome/interior";
+$route['interior/(:num)'] = "welcome/interior/$1";
 $route['exhibition'] = "welcome/exhibition";
-$route['experience'] = "welcome/experience";
+$route['exhibition/(:num)'] = "welcome/exhibition/$1";
 $route['graphic'] = "welcome/graphic";
+$route['graphic/(:num)'] = "welcome/graphic/$1";
 $route['ourteam'] = "welcome/ourteam";
 $route['contact'] = "welcome/contact";
 

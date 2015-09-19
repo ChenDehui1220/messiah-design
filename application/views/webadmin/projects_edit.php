@@ -36,6 +36,7 @@
                   <form class="form form-horizontal validate-form" method="post" enctype="multipart/form-data" style="margin-bottom: 0;">
                     <? if (isset($result->id)) {?>
                     <input type="hidden" name="id" value="<?=$result->id;?>">
+                    <input type="hidden" id="imagesJson" value='<?=$result->images;?>'>
                     <input type="hidden" id="dbType" value="<?=$result->type;?>">
                     <? }?>
                     <div class="form-group">
@@ -104,44 +105,34 @@
                         </label>
                       </div>
                     </div>
-                    <div>
+                    <div class="form-group">
                       <div class="row fileupload-buttonbar">
                         <label class="col-sm-3 control-label">圖片上傳</label>
                         <div class="col-sm-9">
                           <span class="btn btn-success fileinput-button">
                             <i class="icon-plus icon-white"></i>
-                            <span>Add files...</span>
-                            <input id="fileupload" type="file" name="userfile" data-url="/api/common/upload" multiple>
+                            <span>Add files</span>
+                            <input id="fileupload" type="file" name="userfile" accept="image/*" multiple>
                           </span>
-                          <button class="btn btn-primary start" type="submit">
-                          <i class="icon-upload icon-white"></i>
-                          <span>Start upload</span>
-                          </button>
-                          <button class="btn btn-warning cancel" type="reset">
-                          <i class="icon-ban-circle icon-white"></i>
-                          <span>Cancel upload</span>
-                          </button>
-                          <button class="btn btn-danger delete" type="button">
-                          <i class="icon-trash icon-white"></i>
-                          <span>Delete</span>
-                          </button>
-                          <input class="toggle" type="checkbox">
+                          <div class="col-sm-9 fileupload-progress fade">
+                            <!-- The global progress bar -->
+                            <div class="progress progress-striped active" role="progressbar" aria-valuemin="8" aria-valuemax="100" aria-valuenow="0">
+                              <div class="progress-bar" style="width: 0%;"></div>
+                            </div>
+                            <!-- The extended global progress state -->
+                            <div class="progress-extended">&nbsp;</div>
+                          </div>
                         </div>
                       </div>
                       <div>
                         <label class="col-sm-3 control-label"></label>
-                        <div class='col-sm-9 fileupload-progress fade'>
-                          <div aria-valuemax='100' aria-valuemin='0' class='progress progress-success progress-striped active' role='progressbar'>
-                            <div class='bar' style='width:0%;'></div>
-                          </div>
-                          <div class='progress-extended'> </div>
+                        <div class='col-sm-9 fileupload-progress' style='padding-left:8px;'>
+                          <table class='table table-striped' role='presentation'>
+                            <tbody class='fileupload-gallery'>
+                              
+                            </tbody>
+                          </table>
                         </div>
-                        <div class="fileupload-loading"></div>
-                        <div class="fileupload-gallery"></div>
-                        <br>
-                        <table class='table table-striped' role='presentation'>
-                          <tbody class='files' data-target='#modal-gallery' data-toggle='modal-gallery'></tbody>
-                        </table>
                       </div>
                     </div>
                     <div class="form-actions" style="margin-bottom:0">
@@ -156,6 +147,7 @@
                     </div>
                   </form>
                 </div>
+                
               </div>
             </div>
           </div>

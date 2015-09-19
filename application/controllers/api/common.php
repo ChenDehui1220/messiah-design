@@ -31,6 +31,15 @@ class Common extends REST_Controller {
     function upload_get()
     {
     }
+    function upload_delete()
+    {
+        $this->load->helper('file');
+        $args = $this->_delete_args;
+
+        if (isset($args['name'])) {
+            unlink('./uploads/'.$args['name']);
+        }
+    }
     function upload_post()
     {
         $width = $this->post('width');
@@ -50,6 +59,7 @@ class Common extends REST_Controller {
             echo json_encode($error);
         } else {
             $data = $this->upload->data();
+            $data['site_img_url'] = $this->config->base_url() . 'uploads/' . $data['file_name'];
 
             //resize
             if (isset($width) && $width > 0 && isset($height) && $height > 0) {
@@ -68,6 +78,8 @@ class Common extends REST_Controller {
                     $data['thum_name'] = $data['raw_name'] . '_thumb' . $data['file_ext'];
                 }
             }
+
+            chmod($data['full_path'], 0755);
 
             echo json_encode($data);
         }
