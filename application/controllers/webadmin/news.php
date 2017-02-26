@@ -26,17 +26,18 @@ class News extends MY_Controller
         if ($this->input->post()){
             $title = $this->input->post('title');
             $content = $this->input->post('content');
+            $images = $this->input->post('images');
             $createTime = $this->input->post('createTime');
             $status = $this->input->post('status');
 
-            $result = $this->mdl_news->add($title, $content, $createTime, $status);
+            $result = $this->mdl_news->add($title, $content, json_encode($images), $createTime, $status);
 
             if ($result!==null) {
                 redirect('/admin/news');
                 exit;
             }
         }
-        $data = array('result' => (object) array('title'=>'','content'=>'','createTime'=>'','status'=>1));
+        $data = array('result' => (object) array('title'=>'','content'=>'','images'=>'','createTime'=>'','status'=>1, 'fileupload' => true));
         $this->loadView('webadmin/news_edit', $data);
     }
 
@@ -47,10 +48,11 @@ class News extends MY_Controller
             $id = $this->input->post('id');
             $title = $this->input->post('title');
             $content = $this->input->post('content');
+            $images = $this->input->post('images');
             $createTime = $this->input->post('createTime');
             $status = $this->input->post('status');
 
-            $result = $this->mdl_news->update($id, $title, $content, $createTime, $status);
+            $result = $this->mdl_news->update($id, $title, $content, json_encode($images), $createTime, $status);
 
             if ($result!==null) {
                 redirect('/admin/news');
@@ -61,8 +63,9 @@ class News extends MY_Controller
         $data = array();
 
         if ($id !== 0) {
-            $result = $this->mdl_news->one($id);
+            $result = $this->mdl_news->one($id, true);
             $data['result'] = $result[0];
+            $data['fileupload'] = true;
             $this->loadView('webadmin/news_edit', $data);
         } else {
             redirect('/admin/news');

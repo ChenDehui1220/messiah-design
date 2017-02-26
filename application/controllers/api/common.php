@@ -19,6 +19,17 @@ class Common extends REST_Controller {
         $this->load->model('mdl_contact');
         $result = $this->mdl_contact->add($name, $email, $subject, $message);
 
+        //send mail. add by 2015/10/23
+        $this->load->library('email');
+
+        $this->email->from($email, $name);
+        $this->email->to('diciyo@saya-warhorse.com,messiah.team@gmail.com');
+
+        $this->email->subject('官網通知 : ' . $subject);
+        $this->email->message($message);
+
+        $this->email->send();
+
         if ($result) {
             $finalResult['status'] = 'success';
             $this->response($finalResult, 200);

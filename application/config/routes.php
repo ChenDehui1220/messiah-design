@@ -74,6 +74,8 @@ $route['exhibition/(:num)'] = "welcome/exhibition/$1";
 $route['graphic'] = "welcome/graphic";
 $route['graphic/(:num)'] = "welcome/graphic/$1";
 $route['contact'] = "welcome/contact";
+$route['facebook'] = "welcome/facebook";
+$route['facebook/(:num)'] = "welcome/facebook";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

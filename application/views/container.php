@@ -2,11 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <? if(isset($ogTitle)){?>
-    <meta property="og:title" content="<?=$ogTitle;?>"/>
-    <meta property="og:site_name" content="meSSIAH 賽亞室內裝修工程"/>
-    <meta property="og:type" content="website"/>
-    <? }?>
+    <meta property="og:title" content="meSSIAH 賽亞室內裝修工程" />
+    <meta property="og:site_name" content="meSSIAH 賽亞室內裝修工程" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url"
+    content="http://www.messiah-design.com.tw/" />
+    <meta property="og:image"
+    content="http://www.messiah-design.com.tw/assets/images/fbPromo.jpg" />
     <title>meSSIAH 賽亞室內裝修工程</title>
     <link href="/assets/stylesheets/disc_reset.css" rel="stylesheet" type="text/css" />
     <link href="/assets/stylesheets/disc_template.css" rel="stylesheet" type="text/css" />
@@ -24,6 +26,16 @@
     background-image: url();
     }
     </style>
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-68898164-1', 'auto', {'name':'first'});
+    ga('first.send', 'pageview');
+    ga('create', 'UA-68898164-2', 'auto', {'name':'second'});
+    ga('second.send', 'pageview');
+    </script>
   </head>
   <body>
     <div id="fb-root"></div>

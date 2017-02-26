@@ -84,4 +84,9 @@
     </table>
   <br /></td>
 </tr>
+<tr>
+    <td valign="middle" style="margin-bottom: 100px">
+      <? include_once('menu.php');?>
+    </td>
+  </tr>
 </table>

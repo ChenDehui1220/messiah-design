@@ -1,5 +1,8 @@
 RewriteEngine On
 
+RewriteCond %{HTTP_USER_AGENT} ^facebookexternalhit
+RewriteRule ^(.*)$ ogtag.php?$1 [L,NS,QSA]
+
 RewriteRule ^index.php/(.*)$ /$1 [R=302,L]
 
 RewriteCond %{REQUEST_FILENAME} !-f

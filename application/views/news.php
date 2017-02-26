@@ -16,7 +16,16 @@
                     <td valign="top">
                       <table width="100%" border="0" cellspacing="0" cellpadding="0">
                         <tr>
-                          <td width="21%" align="left" valign="top"><img src="/assets/img/ba_550x311.jpg" width="550" height="311" /></td>
+                          <td width="21%" align="left" valign="top">
+                            <? $imgs = $one->images;
+                            if ($imgs !== '') {
+                            $imgs = json_decode($imgs);
+                            if ($imgs){
+                            foreach($imgs as $k => $v) {
+                            ?>
+                            <img src="/uploads/<?=$v;?>" width="550" height="311" style="margin-bottom: 5px" />
+                            <? }}}?>
+                          </td>
                           <td colspan="2" valign="top">
                             <table width="97%" border="0" align="right" cellpadding="0" cellspacing="0">
                               <tr>
@@ -67,6 +76,11 @@
         </td>
       </tr>
     </table>
+  </td>
+</tr>
+<tr>
+  <td valign="middle" style="margin-bottom: 100px">
+    <? include_once('menu.php');?>
   </td>
 </tr>
 </table>

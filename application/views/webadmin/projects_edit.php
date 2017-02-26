@@ -46,7 +46,6 @@
                           <option value="1">室內設計</option>
                           <option value="2">商業空間</option>
                           <option value="3">平面視覺</option>
-                          <option value="4">xxxx</option>
                         </select>
                       </div>
                     </div>
@@ -59,16 +58,17 @@
                     <div class="form-group">
                       <label class="control-label col-sm-3" for="validation_content">內文</label>
                       <div class="col-sm-6 controls">
-                        <textarea class="autosize form-control" data-rule-required="true" id="validation_content" name="content" placeholder="" rows="10"><?=$result->content;?></textarea>
+                        <textarea class="autosize form-control" id="validation_content" name="content" placeholder="" rows="10"><?=$result->content;?></textarea>
                       </div>
                     </div>
                     <div class="form-group">
-                      <label class="control-label col-sm-3" for="validation_address">地點</label>
+                      <label class="control-label col-sm-3" for="validation_address">副標</label>
                       <div class="col-sm-6 controls">
                         <textarea class="autosize form-control" data-rule-required="true" id="validation_content" name="address" placeholder="" rows="1"><?=$result->address;?></textarea>
                       </div>
                     </div>
-                    <div class="form-group">
+                    
+                    <div class="form-group" style="display:none">
                       <label class="control-label col-sm-3" for="validation_date">上架日期</label>
                       <div class="col-sm-6 controls">
                         <div class="datetimepicker input-group" id="datetimepicker">
@@ -79,6 +79,15 @@
                         </div>
                       </div>
                     </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-sm-3" for="validation_que">排序</label>
+                      <div class="col-sm-6 controls">
+                        <input value="<?=$result->que;?>" class="form-control" data-rule-number="true" data-rule-required="true" id="validation_que" name="que" type="text">
+                        <font color="red">*數字越大排序越後面</font>
+                      </div>
+                    </div>
+                    <!--
                     <div class="form-group">
                       <label class="col-sm-3 control-label">精選</label>
                       <div class="col-sm-6">
@@ -92,6 +101,7 @@
                         </label>
                       </div>
                     </div>
+                    -->
                     <div class="form-group">
                       <label class="col-sm-3 control-label">上下架</label>
                       <div class="col-sm-6">

@@ -31,7 +31,8 @@
       <script type="text/javascript">
       $(window).load(function(){
       $('.flexslider').flexslider({
-      animation: "slide"
+      animation: "slide",
+      slideshowSpeed: 3000
       });
       });
       </script>
@@ -45,11 +46,17 @@
       <table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr class="w_b_m1">
           <td width="40%" height="24" align="left" valign="top" class="w_bold"><?=$one->title;?></td>
-          <td width="60%" rowspan="2" align="left" valign="top"><span class="w_s"><?=$one->content;?></span></td>
+          <td width="60%" rowspan="2" align="left" valign="top"><span class="w_s"><?=nl2br($one->content);?></span></td>
         </tr>
         <tr class="w_b_m1">
           <td height="25" align="left" valign="top"><span class="w_ss"><?=$one->address;?></span></td>
         </tr>
       </table></td>
     </tr>
+    <tr><td><p>&nbsp;</p><p>&nbsp;</p></td></tr>
+    <tr>
+    <td valign="middle" style="margin-bottom: 100px">
+      <? include_once('menu.php');?>
+    </td>
+  </tr>
   </table>

@@ -24,10 +24,10 @@ class Mdl_projects extends CI_Model
         $result = array();
 
         if ($id !== null && is_numeric($id)) {
-            $sql   = "SELECT id,title,content,address,images,createTime FROM projects WHERE status = '1' AND id = ? LIMIT 0,1";
+            $sql   = "SELECT id,title,content,address,images,createTime,que FROM projects WHERE status = '1' AND id = ? ORDER BY que ASC LIMIT 0,1";
             $query = $this->db->query($sql, array($id));
         } else {
-            $sql   = "SELECT id,title,content,address,images,createTime FROM projects WHERE status = '1' AND type = ? ORDER BY createTime DESC LIMIT 0,1";
+            $sql   = "SELECT id,title,content,address,images,createTime,que FROM projects WHERE status = '1' AND type = ? ORDER BY que ASC LIMIT 0,1";
             $query = $this->db->query($sql, array($type));
         }
 
@@ -43,7 +43,7 @@ class Mdl_projects extends CI_Model
     {
         $result = array();
 
-        $sql   = "SELECT id,title FROM projects WHERE status = '1' AND type = ? ORDER BY createTime DESC";
+        $sql   = "SELECT id,title FROM projects WHERE status = '1' AND type = ? ORDER BY que ASC";
         $query = $this->db->query($sql, array($type));
 
         if ($query->num_rows() > 0) {
@@ -64,7 +64,7 @@ class Mdl_projects extends CI_Model
             $start = 0;
         }
 
-        $sql   = "SELECT id,type,top,title,address,images,createTime FROM projects WHERE status = '1' ORDER BY createTime DESC LIMIT " . $start . "," . $size;
+        $sql   = "SELECT id,type,top,title,address,images,createTime FROM projects WHERE status = '1' ORDER BY que ASC LIMIT " . $start . "," . $size;
         $query = $this->db->query($sql);
 
         if ($query->num_rows() > 0) {
@@ -78,7 +78,7 @@ class Mdl_projects extends CI_Model
     {
         $result = array();
 
-        $sql   = "SELECT id,type,top,title,content,address,images,createTime,updateTime,status FROM projects WHERE id = ?";
+        $sql   = "SELECT id,type,top,title,content,address,images,createTime,updateTime,que,status FROM projects WHERE id = ?";
         $query = $this->db->query($sql, array($id));
 
         if ($query->num_rows() > 0) {
@@ -92,7 +92,7 @@ class Mdl_projects extends CI_Model
     public function all()
     {
         $result = array();
-        $sql   = "SELECT id,type,top,title,address,images,createTime,status FROM projects ORDER BY createTime DESC";
+        $sql   = "SELECT id,type,top,title,address,images,createTime,que,status FROM projects ORDER BY que ASC";
         $query = $this->db->query($sql);
 
         if ($query->num_rows() > 0) {
@@ -102,7 +102,7 @@ class Mdl_projects extends CI_Model
     }
 
     //新增資料
-    public function add($type, $top, $title, $content, $address, $images, $time, $status)
+    public function add($type, $top, $title, $content, $address, $images, $time, $que, $status)
     {
         $data = array(
             'type'       => $type,
@@ -112,6 +112,7 @@ class Mdl_projects extends CI_Model
             'address'    => $address,
             'images'     => $images,
             'createTime' => $time,
+            'que'     => $que,
             'status'     => $status,
         );
 
@@ -125,7 +126,7 @@ class Mdl_projects extends CI_Model
     }
 
     //更新資料
-    public function update($id, $type, $top, $title, $content, $address, $images, $time, $status)
+    public function update($id, $type, $top, $title, $content, $address, $images, $time, $que, $status)
     {
         $data = array(
             'type'       => $type,
@@ -136,6 +137,7 @@ class Mdl_projects extends CI_Model
             'images'     => $images,
             'createTime' => $time,
             'updateTime' => date("Y-m-d H:i:s"),
+            'que'     => $que,
             'status'     => $status,
         );
 

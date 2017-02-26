@@ -19,19 +19,21 @@
         <td align="center" class="w_grey">
             <table width="75%" border="0" cellspacing="0" cellpadding="0">
                 <tr class="w_b_m2">
-                    <td width="20%" align="center">
+                    <td width="20%" align="center" valign="top">
                         <table width="95%" border="0" cellspacing="0" cellpadding="0">
-                            <? if(isset($newsTop2)) { foreach($newsTop2 as $n => $nv) {?>
+                            <? if(isset($newsTop3)) { foreach($newsTop3 as $n => $nv) { if ($n < 2) {?>
                             <tr>
                                 <td height="25" align="left" valign="middle"><a href="/news/<?=$nv->id;?>" class="w_b_m2">‧<?=mb_substr($nv->title,0,10);?>...</a></td>
                             </tr>
-                            <? }}?>
+                            <? }}}?>
+                            <? if (sizeof($newsTop3) > 2) {?>
                             <tr>
                                 <td height="22" align="center" valign="middle" class="w_b_m2"><a href="/news">&gt;&gt; more</a></td>
                             </tr>
+                            <? }?>
                         </table>
                     </td>
-                    <td width="20%" align="center">
+                    <td width="20%" align="center" valign="top">
                         <table width="59%" border="0" cellspacing="0" cellpadding="0">
                             <tr>
                                 <td height="25" align="center" valign="middle"><a href="/brand/story" class="w_b_m2">品牌故事</a></td>
@@ -44,7 +46,7 @@
                             </tr>
                         </table>
                     </td>
-                    <td width="20%" align="center">
+                    <td width="20%" align="center" valign="top">
                         <table width="90%" border="0" cellspacing="0" cellpadding="0">
                             <tr>
                                 <td height="25" align="center" valign="middle"><a href="/interior" class="w_b_m2">室內設計</a></td>
@@ -57,7 +59,7 @@
                             </tr>
                         </table>
                     </td>
-                    <td width="20%" align="center">
+                    <td width="20%" align="center" valign="top">
                         <table width="90%" border="0" cellspacing="0" cellpadding="0">
                             <tr>
                                 <td height="25" align="center" valign="middle"><a href="/contact" class="w_b_m2">聯絡我們</a></td>
@@ -70,17 +72,22 @@
                             </tr>
                         </table>
                     </td>
-                    <td width="20%" align="center">
+                    <td width="20%" align="center" valign="top">
                         <table width="90%" border="0" cellspacing="0" cellpadding="0">
                             <tr>
-                                <td height="2" align="center" valign="middle"><a href="http://www.dqpa.org/" target="_blank" class="w_b_m2">設計品保會DQPA</a></td>
+                                <td height="2" align="center" valign="middle"><a href="http://www.dqpa.org/" target="_blank" class="w_b_m2">DQPA裝修消保會</a></td>
                             </tr>
                             <tr>
-                                <td height="2" align="center" valign="middle" class="w_b_m2"><a href="#">信義居家</a></td>
+                                <td height="2" align="center" valign="middle"><a href="http://www.fgcasa.com.tw/" target="_blank" class="w_b_m2">徠禮傢俱</a></td>
                             </tr>
+                            <tr>
+                                <td height="2" align="center" valign="middle"><a href="http://www.chiyu-casa.com/" target="_blank" class="w_b_m2">騏聿家居</a></td>
+                            </tr>
+                            <!--
                             <tr>
                                 <td height="22" align="center" valign="middle" class="w_b_m2"><a href="#">&gt;&gt; more</a></td>
                             </tr>
+                            -->
                         </table>
                     </td>
                 </tr>

@@ -15,7 +15,7 @@ class Welcome extends CI_Controller {
     {
         //load news Model
         $this->load->Model('mdl_news');
-        $data['newsTop2'] = $this->mdl_news->newsTop2();
+        $data['newsTop3'] = $this->mdl_news->newsTop3();
 
         $data['content'] = $this->load->view($contentName, $data, true);
         $this->load->view('container', $data);
@@ -94,7 +94,7 @@ class Welcome extends CI_Controller {
         $data['one'] = $this->mdl_news->pageOne($id);
 
         if (sizeof($data['one']) == 0) {
-            redirect('news');
+            redirect('/');
             exit;
         }
         $data['one'] = $data['one'][0];
@@ -221,6 +221,16 @@ class Welcome extends CI_Controller {
 
         $this->loadView('contact', $data);
     }
+
+    //聯絡我們
+    public function facebook()
+    {
+        
+        $data = array();
+
+        $this->loadView('facebook', $data);
+    }
+
 }
 
 /* End of file welcome.php */

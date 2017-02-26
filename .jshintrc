@@ -1,0 +1,16 @@
+{
+  "browser": true,
+  "esnext": true,
+  "globals": {
+    "jQuery": "jQuery",
+    "$": "$",
+    "document": "document",
+    "window": "window",
+    "alert": "alert",
+    "new": "new"
+  },
+  "globalstrict": true,
+  "quotmark": true,
+  "undef": true,
+  "unused": false
+}

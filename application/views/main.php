@@ -4,19 +4,29 @@
 		<div class="flexslider">
 	      <ul class="slides">
 	        <li>
-	          <img src="/assets/img/b1.jpg" width="1000" height="565" />
+	          <a href="http://www.messiah-design.com.tw/exhibition/12">
+	          	<img src="/assets/img/b1.jpg" width="1000" height="565" />
+	          </a>
 	        </li>
 	        <li>
+	        <a href="http://www.messiah-design.com.tw/interior/26">
 	          <img src="/assets/img/b2.jpg" width="1000" height="565" />
+	          </a>
 	        </li>
 	        <li>
+	        <a href="http://www.messiah-design.com.tw/exhibition/11">
 	          <img src="/assets/img/b3.jpg" width="1000" height="565" />
+	          </a>
 	        </li>
 	        <li>
+	        <a href="http://www.messiah-design.com.tw/interior/25">
 	          <img src="/assets/img/b4.jpg" width="1000" height="565" />
+	          </a>
 	        </li>
 	        <li>
+	        <a href="http://www.messiah-design.com.tw/interior/25">
 	          <img src="/assets/img/b5.jpg" width="1000" height="565" />
+	          </a>
 	        </li>
 	      </ul>
 	    </div>
@@ -25,7 +35,8 @@
         <script type="text/javascript">
         $(window).load(function(){
         $('.flexslider').flexslider({
-        animation: "slide"
+        animation: "slide",
+        slideshowSpeed: 3000
         });
         });
         </script>

@@ -30,11 +30,12 @@ class Projects extends MY_Controller
             $address = $this->input->post('address');
             $images = $this->input->post('images');
             $createTime = $this->input->post('createTime');
+            $que = $this->input->post('que');
             $status = $this->input->post('status');
 
             $images = json_encode($images);
 
-            $result = $this->mdl_projects->add($type, $top, $title, $content, $address, $images, $createTime, $status);
+            $result = $this->mdl_projects->add($type, $top, $title, $content, $address, $images, $createTime, $que, $status);
 
             if ($result!==null) {
                 redirect('/admin/projects');
@@ -42,7 +43,7 @@ class Projects extends MY_Controller
             }
         }
 
-        $data = array('result' => (object) array('type'=>'','top'=>0,'title'=>'','content'=>'','address'=>'','images'=>'','createTime'=>'','status'=>1), 'fileupload' => true);
+        $data = array('result' => (object) array('type'=>'','top'=>0,'title'=>'','content'=>'','address'=>'','images'=>'','createTime'=>date("Y-m-d H:i:s"),'que'=>0,'status'=>1), 'fileupload' => true);
         $this->loadView('webadmin/projects_edit', $data);
     }
 
@@ -58,11 +59,12 @@ class Projects extends MY_Controller
             $address = $this->input->post('address');
             $images = $this->input->post('images');
             $createTime = $this->input->post('createTime');
+            $que = $this->input->post('que');
             $status = $this->input->post('status');
 
             $images = json_encode($images);
 
-            $result = $this->mdl_projects->update($id, $type, $top, $title, $content, $address, $images, $createTime, $status);
+            $result = $this->mdl_projects->update($id, $type, $top, $title, $content, $address, $images, $createTime, $que, $status);
 
             if ($result!==null) {
                 redirect('/admin/projects');

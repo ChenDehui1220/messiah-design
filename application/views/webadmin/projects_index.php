@@ -47,8 +47,13 @@
                               類 型
                             </th>
                             <th class='text-center'>
+                              排 序
+                            </th>
+                            <!--
+                            <th class='text-center'>
                               精 選
                             </th>
+                            -->
                             <th class='text-center'>
                               狀 態
                             </th>
@@ -62,8 +67,11 @@
                           ?>
                           <tr>
                             <td><?=$v->title;?></td>
-                            <td><? switch($v->type){case 1:echo '室內設計';break;case 2:echo '商業空間';break;case 3:echo '平面視覺';break;case 4:echo 'xxx';break;}?></td>
+                            <td><? switch($v->type){case 1:echo '室內設計';break;case 2:echo '商業空間';break;case 3:echo '平面視覺';break;}?></td>
+                            <td class='text-center'><?=$v->que;?></td>
+                            <!--
                             <td><?=($v->top==1)?'Yes':'No';?></td>
+                            -->
                             <td class='text-center'>
                               <? if($v->status == 1){?>
                               <span class='label label-important'>on</span>

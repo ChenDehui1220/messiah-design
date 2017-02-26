@@ -3,11 +3,13 @@
 class Mdl_News extends CI_Model
 {
     //取得所有上架資料
-    public function newsTop2()
+    public function newsTop3()
     {
         $result = array();
 
-        $sql   = "SELECT id,title FROM news WHERE status = '1' ORDER BY id DESC LIMIT 2";
+        $now = date("Y-m-d H:i:s");
+
+        $sql   = "SELECT id,title FROM news WHERE status = '1' AND createTime <= '$now' ORDER BY id DESC LIMIT 3";
 
         $query = $this->db->query($sql);
 
@@ -23,11 +25,13 @@ class Mdl_News extends CI_Model
     {
         $result = array();
 
+        $now = date("Y-m-d H:i:s");
+
         if ($id !== null && is_numeric($id)) {
-            $sql   = "SELECT id,title,content,createTime FROM news WHERE status = '1' AND id = ? LIMIT 0,1";
+            $sql   = "SELECT id,title,content,images,createTime FROM news WHERE status = '1' AND createTime <= '$now' AND id = ? LIMIT 0,1";
             $query = $this->db->query($sql, array($id));
         } else {
-            $sql   = "SELECT id,title,content,createTime FROM news WHERE status = '1' ORDER BY createTime DESC LIMIT 0,1";
+            $sql   = "SELECT id,title,content,images,createTime FROM news WHERE status = '1' AND createTime <= '$now' ORDER BY createTime DESC LIMIT 0,1";
             $query = $this->db->query($sql);
         }
 
@@ -43,12 +47,14 @@ class Mdl_News extends CI_Model
     {
         $result = array();
 
+        $now = date("Y-m-d H:i:s");
+
         if ($start > 1) {
             $start = ($start-1) * $size;
         }
 
         if ($exceptId !== null && is_numeric($exceptId)) {
-            $sql   = "SELECT id,title,createTime FROM news WHERE status = '1' AND id != ? ORDER BY createTime DESC LIMIT ".$start.",".$size;
+            $sql   = "SELECT id,title,createTime FROM news WHERE status = '1' AND id != ? AND createTime <= '$now' ORDER BY createTime DESC LIMIT ".$start.",".$size;
             $query = $this->db->query($sql, array($exceptId));
 
             if ($query->num_rows() > 0) {
@@ -64,7 +70,9 @@ class Mdl_News extends CI_Model
     {
         $result = array();
 
-        $sql   = "SELECT id,title,content,createTime,updateTime,status FROM news ORDER BY id DESC";
+        $now = date("Y-m-d H:i:s");
+
+        $sql   = "SELECT id,title,content,images,createTime,updateTime,status FROM news ORDER BY id DESC";
 
         $query = $this->db->query($sql);
 
@@ -76,11 +84,16 @@ class Mdl_News extends CI_Model
     }
 
     //取得單筆資料
-    public function one($id)
+    public function one($id, $passTimeValid = false)
     {
         $result = array();
 
-        $sql   = "SELECT id,title,content,createTime,updateTime,status FROM news WHERE id = ?";
+        $sql   = "SELECT id,title,content,images,createTime,updateTime,status FROM news WHERE id = ?";
+
+        if (!$passTimeValid) {
+            $now = date("Y-m-d H:i:s");
+            $sql .= " AND createTime <= '$now'";
+        }
         $query = $this->db->query($sql, array($id));
 
         if ($query->num_rows() > 0) {
@@ -91,11 +104,12 @@ class Mdl_News extends CI_Model
     }
 
     //新增資料
-    public function add($title, $content, $time, $status)
+    public function add($title, $content, $images, $time, $status)
     {
         $data = array(
             'title'      => $title,
             'content'    => $content,
+            'images'     => $images,
             'createTime' => $time,
             'status'     => $status,
         );
@@ -110,11 +124,12 @@ class Mdl_News extends CI_Model
     }
 
     //更新資料
-    public function update($id, $title, $content, $time, $status)
+    public function update($id, $title, $content, $images, $time, $status)
     {
         $data = array(
             'title'      => $title,
             'content'    => $content,
+            'images'     => $images,
             'createTime' => $time,
             'updateTime' => date("Y-m-d H:i:s"),
             'status'     => $status,
